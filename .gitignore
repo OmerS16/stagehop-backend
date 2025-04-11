@@ -4,3 +4,4 @@ __pycache__/
 api_env/
 bin/
 *.pem
+*.sh
