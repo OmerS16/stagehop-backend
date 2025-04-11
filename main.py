@@ -83,6 +83,7 @@ def get_venues(db: Session = Depends(get_db)):
             'name': v.name,
             'lat': v.lat,
             'lon': v.lon,
+            'logo': v.logo
         }
         for v in venues
     ]
@@ -114,6 +115,7 @@ def to_geojson(events):
                     'venue': {
                         'id': e.venue.id,
                         'name': e.venue.name,
+                        'logo': e.venue.logo
                     }
                 }
             })

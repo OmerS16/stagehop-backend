@@ -9,6 +9,7 @@ class Venue(Base):
     name = Column(String, index=True)
     lat = Column(Float)
     lon = Column(Float)
+    logo = Column(String)
 
     events = relationship("Event", back_populates="venue")
 
