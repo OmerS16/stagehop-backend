@@ -66,7 +66,7 @@ def read_filtered_events(
     if date_from:
         query = query.filter(Event.date >= date_from)
     if date_from and not date_to:
-        date_to = date_from
+        date_to = datetime.combine(date_from.date(), datetime.max.time())
     if date_to:
         query = query.filter(Event.date <= date_to)
     if venue_name:
