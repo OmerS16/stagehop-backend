@@ -58,13 +58,15 @@ def read_filtered_events(
     date_from: Optional[datetime] = Query(None),
     date_to: Optional[datetime] = Query(None),
     venue_name: Optional[str] = Query(None),
-    limit: int = Query(100, ge=1, le=200),
+    limit: int = Query(10, ge=1, le=20),
     offset: int = Query(0, ge=0)
 ):
     query = db.query(Event).join(Event.venue)
 
     if date_from:
         query = query.filter(Event.date >= date_from)
+    if date_from and not date_to:
+        date_to = date_from
     if date_to:
         query = query.filter(Event.date <= date_to)
     if venue_name:
