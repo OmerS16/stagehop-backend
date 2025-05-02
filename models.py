@@ -16,7 +16,7 @@ class Venue(Base):
 class Event(Base):
     __tablename__ = "events"
 
-    id = Column(Integer, primary_key=True)
+    id = Column(String, primary_key=True)
     show_name = Column(String)
     date = Column(DateTime)
     link = Column(String)
